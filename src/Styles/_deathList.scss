@@ -5,7 +5,7 @@
     padding-bottom: 1rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 810px) {
     .cards-death {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -15,6 +15,13 @@
     background: #333;
     padding: 20px;
     border-radius: 10px;
+
+    h2 {
+        font-size: 25px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
 
     .span-header {
         background: -webkit-linear-gradient(#4b9b60, #266437);
