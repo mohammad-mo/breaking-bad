@@ -4,8 +4,8 @@ const EpisodeListItem = ({ item }) =>
         <div className="card-episode">
             <h2><span className="span-header">Series:</span> {item.series}</h2>
             <span>Title: <p>{item.title}</p></span>
-            <span>Episode: <p>{item.episode}</p></span>
             <span>Season: <p>{item.season}</p></span>
+            <span>Episode: <p>{item.episode}</p></span>
         </div>
     )
 }
