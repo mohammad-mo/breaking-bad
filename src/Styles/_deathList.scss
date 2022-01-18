@@ -1,0 +1,36 @@
+.cards-death {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    .cards-death {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.card-death {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+
+    .span-header {
+        background: -webkit-linear-gradient(#4b9b60, #266437);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    span {
+        font-weight: bold;
+        display: block;
+    }
+
+    p {
+        display: inline-block;
+        font-weight: normal;
+    }
+}

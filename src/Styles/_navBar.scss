@@ -1,0 +1,38 @@
+.container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container h1 {
+    background: -webkit-linear-gradient(#4b9b60, #16381F);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+    padding-left: 20px;
+}
+
+a.active {
+    color: #408552;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:active {
+    color: #408552;
+}
