@@ -6,6 +6,7 @@ const EpisodeListItem = ({ item }) =>
             <span>Title: <p>{item.title}</p></span>
             <span>Season: <p>{item.season}</p></span>
             <span>Episode: <p>{item.episode}</p></span>
+            <span>Air Date: <p>{item.air_date}</p></span>
         </div>
     )
 }
