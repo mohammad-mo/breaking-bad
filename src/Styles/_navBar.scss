@@ -1,8 +1,21 @@
 .container h1 {
+    font-size: 2rem;
     background: -webkit-linear-gradient(#4b9b60, #16381F);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 425px) {
+    .container h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container h1 {
+        font-size: 1.5rem;
+    }
 }
 
 .menu-link li {
@@ -39,6 +52,7 @@ a:active {
     display: flex;
     justify-content: center;
     align-content: center;
+    font-size: 1.1rem;
 }
 
 .hamburger-menu {
@@ -46,19 +60,17 @@ a:active {
     font-size: 30px;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 730px) {
     .hamburger-menu {
         display: none;
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 730px) {
 
     .menu-link {
         display: none;
         width: 100%;
-        max-height: 0;
-        max-height: 100%;
         margin-top: 1rem;
         flex-direction: column;
         align-items: center;
@@ -76,6 +88,5 @@ a:active {
 
     .menu-link li {
         padding-left: 0;
-        font-size: 1.1rem;
     }
 }
