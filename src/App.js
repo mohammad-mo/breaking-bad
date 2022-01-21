@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import NavBar from './Components/NavBar'
 import CharacterList from './Components/CharacterList'
@@ -34,7 +34,6 @@ const App = () =>
   }, [])
 
   return (
-    <Router>
       <div className="App">
         <NavBar />
         <Routes>
@@ -48,7 +47,6 @@ const App = () =>
           <Route path='/deaths' element={<DeathList items={deathItems} />} />
         </Routes>
       </div>
-    </Router>
   );
 }
 
