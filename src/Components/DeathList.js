@@ -1,11 +1,23 @@
-import DeathListItem from "./DeathListItem"
+import DeathListItem from './DeathListItem'
+
+// Animations
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../animation'
 
 const DeathList = ({ items }) => 
 {
     return (
-        <section className="cards-death">
-          {items.map(item => <DeathListItem item={item} key={item.death_id} />)}
-        </section>
+      <motion.section
+        className="cards-death"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        {items.map((item) => (
+          <DeathListItem item={item} key={item.death_id} />
+        ))}
+      </motion.section>
     )
 }
  

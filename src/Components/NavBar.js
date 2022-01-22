@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { NavLink } from 'react-router-dom'
 
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { AiFillCloseCircle } from 'react-icons/ai'
 
 const NavBar = () => 
 {
@@ -14,7 +15,7 @@ const NavBar = () =>
         {/* Hamburger Menu */}
         <div className="hamburger-menu">
           <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-            <GiHamburgerMenu />
+            {showMediaIcons ? <AiFillCloseCircle /> : <GiHamburgerMenu />}
           </a>
         </div>
         <ul className={`menu-link ${showMediaIcons ? 'active' : ''}`}>

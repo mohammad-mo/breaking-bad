@@ -1,11 +1,23 @@
-import EpisodeListItem from "./EpisodeListItem"
+import EpisodeListItem from './EpisodeListItem'
+
+// Animations
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../animation'
 
 const EpisodeList = ({ items }) => 
 {
     return (
-        <section className="cards-episode">
-          {items.map(item => <EpisodeListItem item={item} key={item.episode_id} />)}
-        </section>
+      <motion.section
+        className="cards-episode"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+        exit="exit"
+      >
+        {items.map((item) => (
+          <EpisodeListItem item={item} key={item.episode_id} />
+        ))}
+      </motion.section>
     )
 }
  
