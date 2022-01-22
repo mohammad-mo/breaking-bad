@@ -17,6 +17,10 @@
     border-radius: 10px;
 
     h2 {
+        background: -webkit-linear-gradient(#4b9b60, #266437);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         font-size: 25px;
         border-bottom: 1px solid #fff;
         padding-bottom: 10px;
@@ -24,13 +28,6 @@
 
     p {
         padding: 10px 0;
-    }
-    
-    .span-header {
-        background: -webkit-linear-gradient(#4b9b60, #266437);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 
     .span-series {
