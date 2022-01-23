@@ -55,16 +55,9 @@ a:active {
     font-size: 1.1rem;
 }
 
-.hamburger-menu svg {
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 30px;
-    transition: all 0.3s ease;
-}
-
-.hamburger-menu svg:hover,
-.hamburger-menu svg:active {
-    color: #408552;
+.hamburger-menu {
+    position: relative;
+    right: -11px;
 }
 
 @media screen and (min-width: 730px) {

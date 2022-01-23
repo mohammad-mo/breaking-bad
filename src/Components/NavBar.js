@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { NavLink } from 'react-router-dom'
 
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { AiFillCloseCircle } from 'react-icons/ai'
+import Hamburger from 'hamburger-react'
 
 const NavBar = () => 
 {
   const [showMediaIcons, setShowMediaIcons] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <header className="container">
@@ -14,7 +14,7 @@ const NavBar = () =>
         <h1>Breaking Bad</h1>
         {/* Hamburger Menu */}
         <div className="hamburger-menu" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-            {showMediaIcons ? <AiFillCloseCircle /> : <GiHamburgerMenu />}
+          <Hamburger className size={28} toggled={isOpen} toggle={setOpen} />
         </div>
         <ul className={`menu-link ${showMediaIcons ? 'active' : ''}`}>
           <li><NavLink to={{ pathname: '/' }}>Characters</NavLink></li>
