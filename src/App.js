@@ -7,6 +7,7 @@ import CharacterList from './Components/CharacterList'
 import QuoteList from './Components/QuoteList'
 import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
+import Loading from './Components/loading'
 import axios from 'axios'
 
 // Style
@@ -24,6 +25,7 @@ const App = () =>
   const [quoteItems, setQuoteItems] = useState([])
   const [episodeItems, setEpisodeItems] = useState([])
   const [deathItems, setDeathItems] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() =>
   {
@@ -37,27 +39,41 @@ const App = () =>
       setQuoteItems(quotes.data)
       setEpisodeItems(episodes.data)
       setDeathItems(deaths.data)
+      setLoading(false)
     }
     fetchItems()
   }, [])
 
   return (
-      <div className="App">
-        <NavBar />
-        <AnimatePresence exitBeforeEnter>
-          <Routes location={location} key={location.pathname}>
-            <Route exact path='/' element=
-            {
-                <CharacterList items={characterItems} />
+    <div className="App">
+      <NavBar />
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            exact
+            path="/"
+            element={
+              loading ? <Loading /> : <CharacterList items={characterItems} />
             }
-            />
-            <Route path='/quotes' element={<QuoteList items={quoteItems} />} />
-            <Route path='/episodes' element={<EpisodeList items={episodeItems} />} />
-            <Route path='/deaths' element={<DeathList items={deathItems} />} />
-          </Routes>
-        </AnimatePresence>
-      </div>
-  );
+          />
+          <Route
+            path="/quotes"
+            element={loading ? <Loading /> : <QuoteList items={quoteItems} />}
+          />
+          <Route
+            path="/episodes"
+            element={
+              loading ? <Loading /> : <EpisodeList items={episodeItems} />
+            }
+          />
+          <Route
+            path="/deaths"
+            element={loading ? <Loading /> : <DeathList items={deathItems} />}
+          />
+        </Routes>
+      </AnimatePresence>
+    </div>
+  )
 }
 
 export default App

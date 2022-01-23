@@ -13,10 +13,8 @@ const NavBar = () =>
       <nav className="main-nav">
         <h1>Breaking Bad</h1>
         {/* Hamburger Menu */}
-        <div className="hamburger-menu">
-          <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+        <div className="hamburger-menu" onClick={() => setShowMediaIcons(!showMediaIcons)}>
             {showMediaIcons ? <AiFillCloseCircle /> : <GiHamburgerMenu />}
-          </a>
         </div>
         <ul className={`menu-link ${showMediaIcons ? 'active' : ''}`}>
           <li><NavLink to={{ pathname: '/' }}>Characters</NavLink></li>
