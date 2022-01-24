@@ -4,6 +4,10 @@ Characters: 62
 Episodes: 102  
 Quotes: 70  
 Death Count: 271  
+Enjoy!  
 
 ##
-![Breaking Bad](https://user-images.githubusercontent.com/73068793/149989891-66f76541-d1ae-41a7-9608-650b053bf2b9.png)
+![Screenshot (181)](https://user-images.githubusercontent.com/73068793/150792747-72582c73-7251-4aa1-9410-ed0da19fd17a.png)
+![Screenshot (184)](https://user-images.githubusercontent.com/73068793/150792763-98dc3672-5553-4917-b495-8a4eef43473f.png)
+
+
