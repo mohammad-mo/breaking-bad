@@ -11,7 +11,7 @@ const NavBar = () =>
   return (
     <header className="container">
       <nav className="main-nav">
-        <h1>Breaking Bad</h1>
+        <h1><span className="br-span">Br</span>eaking <span className="ba-span">Ba</span>d</h1>
         {/* Hamburger Menu */}
         <div className="hamburger-menu" onClick={() => setShowMediaIcons(!showMediaIcons)}>
           { showMediaIcons ? <AiFillCloseCircle /> : <GiHamburgerMenu /> }
