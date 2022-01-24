@@ -18,7 +18,7 @@
 .br-span {
     position: relative;
     padding: 5px 8px;
-    background: linear-gradient(120deg, #13483b 30%, #095a2f);
+    background: linear-gradient(120deg, #e2cd2fc0 30%, #edb825d8);
 }
 
 .br-span::after {
@@ -32,7 +32,7 @@
 .ba-span {
     position: relative;
     padding: 5px 5px;
-    background: linear-gradient(-30deg, #13483b 30%, #095a2f);
+    background: linear-gradient(-30deg, #e2cd2fda 30%, #edb825d8);
 }
 
 .ba-span::after {
@@ -50,17 +50,16 @@
 
 a {
     color: #fff;
-    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a.active {
-    color: #408552;
+    color: #ecbb33;
 }
 
 a:hover,
 a:active {
-    color: #408552;
+    color: #ecbb33;
 }
 
 .main-nav {
@@ -81,6 +80,7 @@ a:active {
 }
 
 .hamburger-menu {
+    cursor: pointer;
     margin-top: 11px;
     font-size: 30px;
 }
@@ -101,7 +101,7 @@ a:active {
         align-items: center;
         opacity: 0;
         background: rgb(43, 43, 43);
-        border-radius: 10px;
+        border-radius: 5px;
         padding: 10px;
     }
 

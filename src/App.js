@@ -8,6 +8,7 @@ import QuoteList from './Components/QuoteList'
 import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
 import Loading from './Components/loading'
+import CustomCursor from './Components/CutomCursor'
 import axios from 'axios'
 
 // Style
@@ -46,6 +47,7 @@ const App = () =>
 
   return (
     <div className="App">
+      <CustomCursor />
       <NavBar />
       <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.pathname}>
