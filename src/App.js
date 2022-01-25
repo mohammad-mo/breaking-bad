@@ -9,7 +9,7 @@ import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
 import Loading from './Components/loading'
 import CustomCursor from './Components/CutomCursor'
-import axios from 'axios'
+import axios from './Components/Api'
 
 // Style
 import './Styles/app.scss'
@@ -32,10 +32,10 @@ const App = () =>
   {
     const fetchItems = async () =>
     {
-      const results = await axios.get(`https://breakingbadapi.com/api/characters`)
-      const quotes = await axios.get(`https://breakingbadapi.com/api/quotes`)
-      const episodes = await axios.get(`https://breakingbadapi.com/api/episodes`)
-      const deaths = await axios.get(`https://breakingbadapi.com/api/deaths`)
+      const results = await axios.get(`characters`)
+      const quotes = await axios.get(`quotes`)
+      const episodes = await axios.get(`episodes`)
+      const deaths = await axios.get(`deaths`)
       setCharacterItems(results.data)
       setQuoteItems(quotes.data)
       setEpisodeItems(episodes.data)
