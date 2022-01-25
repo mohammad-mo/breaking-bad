@@ -23,12 +23,12 @@ body {
     body {
         background: #000 url("../images/background-mobile.webp") no-repeat center/cover;
         background-image: -webkit-image-set(
-        url("../images/background-mobile.webp") type("image/webp"),
-        url("../images/background-mobile.jpg") type("image/jpeg")
+            url("../images/background-mobile.jpg") type("image/jpeg"),
+        url("../images/background-mobile.webp") type("image/webp")
     );
     background-image: image-set(
-        url("../images/background-mobile.webp") type("image/webp"),
-        url("../images/background-mobile.jpg") type("image/jpeg")
+        url("../images/background-mobile.jpg") type("image/jpeg"),
+        url("../images/background-mobile.webp") type("image/webp")
     );
     }
 }
