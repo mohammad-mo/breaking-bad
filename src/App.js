@@ -50,29 +50,23 @@ const App = () =>
       <CustomCursor />
       <NavBar />
       <AnimatePresence exitBeforeEnter>
-        <Routes location={location} key={location.pathname}>
-          <Route
-            exact
-            path="/"
-            element={
-              loading ? <Loading /> : <CharacterList items={characterItems} />
-            }
-          />
-          <Route
-            path="/quotes"
-            element={loading ? <Loading /> : <QuoteList items={quoteItems} />}
-          />
-          <Route
-            path="/episodes"
-            element={
-              loading ? <Loading /> : <EpisodeList items={episodeItems} />
-            }
-          />
-          <Route
-            path="/deaths"
-            element={loading ? <Loading /> : <DeathList items={deathItems} />}
-          />
-        </Routes>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Routes location={location} key={location.pathname}>
+            <Route
+              exact
+              path="/"
+              element={<CharacterList items={characterItems} />}
+            />
+            <Route path="/quotes" element={<QuoteList items={quoteItems} />} />
+            <Route
+              path="/episodes"
+              element={<EpisodeList items={episodeItems} />}
+            />
+            <Route path="/deaths" element={<DeathList items={deathItems} />} />
+          </Routes>
+        )}
       </AnimatePresence>
     </div>
   )
