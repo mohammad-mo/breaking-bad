@@ -1,10 +1,7 @@
-import { motion } from "framer-motion"
-import { fade } from "../animation"
-
 const CharacterListItem = ({ item }) => 
 {
   return (
-    <motion.div variants={fade} className="card">
+    <div className="card">
       <div className="card-inner">
         <div className="card-front">
           <img src={item.img} alt="character" />
@@ -35,7 +32,7 @@ const CharacterListItem = ({ item }) =>
           </ul>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
