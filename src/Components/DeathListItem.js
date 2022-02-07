@@ -7,7 +7,6 @@ const DeathListItem = ({ item }) =>
             <span>Cause: <p>{item.cause}</p></span>
             <span>Season: <p>{item.season}</p></span>
             <span>Episode: <p>{item.episode}</p></span>
-            <span>Number of deaths: <p>{item.number_of_deaths}</p></span>
             <span>Last Words: <p>{item.last_words}</p></span>
         </div>
     )
