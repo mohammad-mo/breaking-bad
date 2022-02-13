@@ -115,6 +115,8 @@ const CharacterListItem = ({ item }) =>
       case 'Kaylee Ehrmantraut':
       case 'Duane Chow':
         return item.birthday = 'Unknown'
+      default:
+        return item.birthday
     }
   }
 
