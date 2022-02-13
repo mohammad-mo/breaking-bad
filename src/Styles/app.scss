@@ -5,6 +5,9 @@
 }
  
 body {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1.25rem;
     background: #000 url("../images/background.jpg") no-repeat center/cover;
     background-image: -webkit-image-set(
         url("../images/background.webp") type("image/webp"),
@@ -57,11 +60,6 @@ a {
     text-decoration: none;
 }
 
-.App {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
 
 @import './navBar';
 @import './characterList';
