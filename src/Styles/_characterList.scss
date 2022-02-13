@@ -1,27 +1,9 @@
 .cards {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     padding-bottom: 1rem;
 }
-
-// @media screen and (max-width: 930px) {
-//     .cards {
-//         grid-template-columns: repeat(3, 1fr);
-//     }
-// }
-
-// @media screen and (max-width: 700px) {
-//     .cards {
-//         grid-template-columns: repeat(2, 1fr);
-//     }
-// }
-
-// @media screen and (max-width: 500px) {
-//     .cards {
-//         grid-template-columns: repeat(1, 1fr);
-//     }
-// }
 
 .card {
     cursor: pointer;
