@@ -1,11 +1,35 @@
+import React, { useContext, useEffect } from 'react'
+import Context from '../Context/Context'
+import { getData } from '../Context/Actions'
+import Loading from './loading'
+
 import EpisodeListItem from './EpisodeListItem'
 
 // Animations
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-const EpisodeList = ({ items }) => 
+const EpisodeList = () => 
 {
+    const { episodes, dispatch, loading } = useContext(Context)
+
+    useEffect(async () =>
+    {
+      dispatch({ type: 'SET_LOADING' })
+      const getCharacters = async () =>
+      {
+        const data = await getData()
+        dispatch({ type: 'GET_DATA', payload: data })
+      }
+      getCharacters()
+
+    }, [dispatch])
+
+    if (loading)
+    {
+      return <Loading />
+    }
+
     return (
       <motion.section
         className="cards-episode"
@@ -14,9 +38,9 @@ const EpisodeList = ({ items }) =>
         animate="show"
         exit="exit"
       >
-        {items.map((item) => (
-          <EpisodeListItem item={item} key={item.episode_id} />
-        ))}
+        {React.Children.toArray(episodes.map((item) => (
+          <EpisodeListItem item={item} />
+        )))}
       </motion.section>
     )
 }

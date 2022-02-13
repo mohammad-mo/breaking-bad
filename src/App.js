@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import { ContextProvider } from './Context/Context'
 
 // Components
 import NavBar from './Components/NavBar'
@@ -7,9 +7,7 @@ import CharacterList from './Components/CharacterList'
 import QuoteList from './Components/QuoteList'
 import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
-import Loading from './Components/loading'
 import CustomCursor from './Components/CutomCursor'
-import axios from './Components/Api'
 
 // Style
 import './Styles/app.scss'
@@ -22,53 +20,27 @@ const App = () =>
 
   const location = useLocation()
 
-  const [characterItems, setCharacterItems] = useState([])
-  const [quoteItems, setQuoteItems] = useState([])
-  const [episodeItems, setEpisodeItems] = useState([])
-  const [deathItems, setDeathItems] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() =>
-  {
-    const fetchItems = async () =>
-    {
-      const results = await axios.get(`characters`)
-      const quotes = await axios.get(`quotes`)
-      const episodes = await axios.get(`episodes`)
-      const deaths = await axios.get(`deaths`)
-      setCharacterItems(results.data)
-      setQuoteItems(quotes.data)
-      setEpisodeItems(episodes.data)
-      setDeathItems(deaths.data)
-      setLoading(false)
-    }
-    fetchItems()
-  }, [])
-
   return (
-    <div className="App">
+    <ContextProvider>
       <CustomCursor />
       <NavBar />
       <AnimatePresence exitBeforeEnter>
-        {loading ? (
-          <Loading />
-        ) : (
           <Routes location={location} key={location.pathname}>
             <Route
               exact
               path="/"
-              element={<CharacterList items={characterItems} />}
+              element={<CharacterList />}
             />
-            <Route path="/quotes" element={<QuoteList items={quoteItems} />} />
+            <Route path="/quotes" element={<QuoteList />} />
             <Route
               path="/episodes"
-              element={<EpisodeList items={episodeItems} />}
+              element={<EpisodeList />}
             />
-            <Route path="/deaths" element={<DeathList items={deathItems} />} />
+            <Route path="/deaths" element={<DeathList />} />
           </Routes>
-        )}
+        )
       </AnimatePresence>
-    </div>
+    </ContextProvider>
   )
 }
 

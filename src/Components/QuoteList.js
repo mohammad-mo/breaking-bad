@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import Context from '../Context/Context'
+import { getData } from '../Context/Actions'
+import Loading from './loading'
+
 import QuoteListItem from './QuoteListItem'
 
 // Animations
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-const QuoteList = ({ items }) => 
+const QuoteList = () => 
 {
+  const { quotes, dispatch, loading } = useContext(Context)
+
+  useEffect(async () =>
+  {
+    dispatch({ type: 'SET_LOADING' })
+    const getCharacters = async () =>
+    {
+      const data = await getData()
+      dispatch({ type: 'GET_DATA', payload: data })
+    }
+    getCharacters()
+
+  }, [dispatch])
+
+  if (loading)
+  {
+    return <Loading />
+  }
+
   return (
     <motion.section
       className="cards-quote"
@@ -15,9 +38,9 @@ const QuoteList = ({ items }) =>
       animate="show"
       exit="exit"
     >
-      {items.map((item) => (
-        <QuoteListItem item={item} key={item.quote_id} />
-      ))}
+      {React.Children.toArray(quotes.map((item) => (
+        <QuoteListItem item={item} />
+      )))}
     </motion.section>
   )
 }

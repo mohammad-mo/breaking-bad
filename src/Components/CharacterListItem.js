@@ -68,8 +68,6 @@ const CharacterListItem = ({ item }) =>
         return item.birthday = '12-27-1958'
       case 'Wendy S.':
         return item.birthday = '12-12-1956'
-      case 'Bogdan Wolynetz':
-        return item.birthday = '1961'
       case 'Ken':
         return item.birthday = '09-10-1975'
       case 'George Merkert':
@@ -105,6 +103,7 @@ const CharacterListItem = ({ item }) =>
       case 'Eduardo Salamanca':
         return item.birthday = '02-13-1975'
       case 'Marco & Leonel Salamanca':
+      case 'Bogdan Wolynetz':
       case 'Gonzo':
       case 'Christian Ortgea':
       case 'No-Doze':
