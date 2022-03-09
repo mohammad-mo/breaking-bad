@@ -13,6 +13,7 @@ const QuoteList = () =>
 {
   const { quotes, dispatch, loading } = useContext(Context)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () =>
   {
     dispatch({ type: 'SET_LOADING' })
@@ -21,7 +22,7 @@ const QuoteList = () =>
       const data = await getData()
       dispatch({ type: 'GET_DATA', payload: data })
     }
-    getCharacters()
+    await getCharacters()
 
   }, [dispatch])
 

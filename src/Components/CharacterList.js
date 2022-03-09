@@ -13,6 +13,7 @@ const CharacterList = () =>
 {
   const { characters, dispatch, loading } = useContext(Context)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () =>
   {
     dispatch({ type: 'SET_LOADING' })
@@ -21,7 +22,7 @@ const CharacterList = () =>
       const data = await getData()
       dispatch({ type: 'GET_DATA', payload: data })
     }
-    getCharacters()
+    await getCharacters()
 
   }, [dispatch])
 
