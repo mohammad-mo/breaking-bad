@@ -1,7 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import Context from '../Context/Context'
-import { getData } from '../Context/Actions'
-import Loading from './loading'
+import React from 'react'
 
 import CharacterListItem from './CharacterListItem'
 
@@ -9,39 +6,18 @@ import CharacterListItem from './CharacterListItem'
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-const CharacterList = () => 
-{
-  const { characters, dispatch, loading } = useContext(Context)
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () =>
-  {
-    dispatch({ type: 'SET_LOADING' })
-    const getCharacters = async () =>
-    {
-      const data = await getData()
-      dispatch({ type: 'GET_DATA', payload: data })
-    }
-    await getCharacters()
-
-  }, [dispatch])
-
-  if (loading)
-  {
-    return <Loading />
-  }
-
+const CharacterList = ({ characters }) => {
   return (
     <motion.section
-      className="cards"
+      className='cards'
       variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-      exit="exit"
+      initial='hidden'
+      animate='show'
+      exit='exit'
     >
-      {React.Children.toArray(characters.map((item) => (
-        <CharacterListItem item={item} />
-      )))}
+      {React.Children.toArray(
+        characters.map((item) => <CharacterListItem item={item} />),
+      )}
     </motion.section>
   )
 }

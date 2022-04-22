@@ -1,7 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import Context from '../Context/Context'
-import { getData } from '../Context/Actions'
-import Loading from './loading'
+import React from 'react'
 
 import QuoteListItem from './QuoteListItem'
 
@@ -9,39 +6,18 @@ import QuoteListItem from './QuoteListItem'
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-const QuoteList = () => 
-{
-  const { quotes, dispatch, loading } = useContext(Context)
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () =>
-  {
-    dispatch({ type: 'SET_LOADING' })
-    const getCharacters = async () =>
-    {
-      const data = await getData()
-      dispatch({ type: 'GET_DATA', payload: data })
-    }
-    await getCharacters()
-
-  }, [dispatch])
-
-  if (loading)
-  {
-    return <Loading />
-  }
-
+const QuoteList = ({ quotes }) => {
   return (
     <motion.section
-      className="cards-quote"
+      className='cards-quote'
       variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-      exit="exit"
+      initial='hidden'
+      animate='show'
+      exit='exit'
     >
-      {React.Children.toArray(quotes.map((item) => (
-        <QuoteListItem item={item} />
-      )))}
+      {React.Children.toArray(
+        quotes.map((item) => <QuoteListItem item={item} />),
+      )}
     </motion.section>
   )
 }

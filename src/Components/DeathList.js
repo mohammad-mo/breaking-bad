@@ -1,7 +1,4 @@
-import React, { useContext, useEffect } from 'react'
-import Context from '../Context/Context'
-import { getData } from '../Context/Actions'
-import Loading from './loading'
+import React from 'react'
 
 import DeathListItem from './DeathListItem'
 
@@ -10,41 +7,20 @@ import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
 // eslint-disable-next-line react-hooks/exhaustive-deps
-const DeathList = () => 
-{
-    const { deaths, dispatch, loading } = useContext(Context)
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(async () =>
-    {
-      dispatch({ type: 'SET_LOADING' })
-      const getCharacters = async () =>
-      {
-        const data = await getData()
-        dispatch({ type: 'GET_DATA', payload: data })
-      }
-      await getCharacters()
-
-    }, [dispatch])
-
-    if (loading)
-    {
-      return <Loading />
-    }
-
-    return (
-      <motion.section
-        className="cards-death"
-        variants={pageAnimation}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-      >
-        {React.Children.toArray(deaths.map((item) => (
-          <DeathListItem item={item} />
-        )))}
-      </motion.section>
-    )
+const DeathList = ({ deaths }) => {
+  return (
+    <motion.section
+      className='cards-death'
+      variants={pageAnimation}
+      initial='hidden'
+      animate='show'
+      exit='exit'
+    >
+      {React.Children.toArray(
+        deaths.map((item) => <DeathListItem item={item} />),
+      )}
+    </motion.section>
+  )
 }
- 
+
 export default DeathList

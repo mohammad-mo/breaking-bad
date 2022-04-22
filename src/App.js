@@ -1,5 +1,10 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { ContextProvider } from './Context/Context'
+
+import { useEffect, useContext } from 'react'
+
+// Context
+import BreakingBadContext from './Context/Context'
+import { getData } from './Context/Actions'
 
 // Components
 import NavBar from './Components/NavBar'
@@ -8,6 +13,7 @@ import QuoteList from './Components/QuoteList'
 import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
 import CustomCursor from './Components/CutomCursor'
+import Loading from './Components/loading'
 
 // Style
 import './Styles/app.scss'
@@ -15,33 +21,52 @@ import './Styles/app.scss'
 // Animation
 import { AnimatePresence } from 'framer-motion'
 
-const App = () => 
-{
+const App = () => {
+  const { characters, quotes, episodes, deaths, dispatch, loading } =
+    useContext(BreakingBadContext)
+
+  useEffect(() => {
+    dispatch({ type: 'SET_LOADING' })
+    const getCharacters = async () => {
+      const data = await getData()
+      dispatch({ type: 'GET_DATA', payload: data })
+    }
+    getCharacters()
+  }, [dispatch])
 
   const location = useLocation()
 
-  return (
-    <ContextProvider>
-      <CustomCursor />
-      <NavBar />
-      <AnimatePresence exitBeforeEnter>
+  if (loading) {
+    return (
+      <>
+        <NavBar />
+        <Loading />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <CustomCursor />
+        <NavBar />
+        <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}>
             <Route
               exact
-              path="/"
-              element={<CharacterList />}
+              path='/'
+              element={<CharacterList characters={characters} />}
             />
-            <Route path="/quotes" element={<QuoteList />} />
+            <Route path='/quotes' element={<QuoteList quotes={quotes} />} />
             <Route
-              path="/episodes"
-              element={<EpisodeList />}
+              path='/episodes'
+              element={<EpisodeList episodes={episodes} />}
             />
-            <Route path="/deaths" element={<DeathList />} />
+            <Route path='/deaths' element={<DeathList deaths={deaths} />} />
           </Routes>
-        )
-      </AnimatePresence>
-    </ContextProvider>
-  )
+          )
+        </AnimatePresence>
+      </>
+    )
+  }
 }
 
 export default App

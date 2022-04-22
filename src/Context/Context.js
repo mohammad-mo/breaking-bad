@@ -1,26 +1,29 @@
 import { createContext, useReducer } from 'react'
 import Reducer from './Reducer'
 
-const Context = createContext()
+const BreakingBadContext = createContext()
 
-export const ContextProvider = ({ children }) =>
-{
-    const initialState = {
-        characters: [],
-        quotes: [],
-        episodes: [],
-        deaths: [],
-        loading: false
-    }
+export const ContextProvider = ({ children }) => {
+  const initialState = {
+    characters: [],
+    quotes: [],
+    episodes: [],
+    deaths: [],
+    loading: false,
+  }
 
-    const [state, dispatch] = useReducer(Reducer, initialState)
+  const [state, dispatch] = useReducer(Reducer, initialState)
 
-    return <Context.Provider value={{
+  return (
+    <BreakingBadContext.Provider
+      value={{
         ...state,
-        dispatch
-    }}>
-        {children}
-    </Context.Provider>
+        dispatch,
+      }}
+    >
+      {children}
+    </BreakingBadContext.Provider>
+  )
 }
 
-export default Context
+export default BreakingBadContext
