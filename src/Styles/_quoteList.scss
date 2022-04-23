@@ -3,34 +3,43 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
   padding-bottom: 1rem;
+
+  .card-quote {
+    background: rgb(43, 43, 43);
+    padding: 20px;
+    border-radius: 5px;
+
+    h2 {
+      background: -webkit-linear-gradient(#e2cd2fda, #edb825d8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 25px;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 10px;
+      margin-bottom: 13px;
+    }
+
+    p {
+      &:first-of-type {
+        margin-bottom: 5px;
+      }
+    }
+
+    span {
+      font-weight: bold;
+      display: block;
+
+      p {
+        display: inline-block;
+        font-weight: normal;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 810px) {
   .cards-quote {
     grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.card-quote {
-  background: rgb(43, 43, 43);
-  padding: 20px;
-  border-radius: 5px;
-
-  h2 {
-    background: -webkit-linear-gradient(#e2cd2fda, #edb825d8);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 25px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 10px;
-  }
-
-  p {
-    padding: 10px 0;
-  }
-
-  .span-series {
-    font-weight: bold;
   }
 }

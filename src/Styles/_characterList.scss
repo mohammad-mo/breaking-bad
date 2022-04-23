@@ -3,63 +3,63 @@
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   padding-bottom: 1rem;
-}
 
-.card {
-  cursor: pointer;
-  background: transparent;
-  height: 300px;
-  perspective: 1000px;
-
-  h2 {
-    background: -webkit-linear-gradient(#e2cd2fda, #edb825d8);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 25px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-  }
-
-  img {
-    border-radius: 5px;
-    width: 100%;
+  .card {
+    // cursor: pointer;
+    background: transparent;
     height: 300px;
-    object-fit: cover;
-    object-position: top center;
+    perspective: 1000px;
+
+    &:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+
+      .card-front,
+      .card-back {
+        border-radius: 5px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .card-back {
+        background: rgb(43, 43, 43);
+        color: #fff;
+        padding: 20px;
+        transform: rotateY(180deg);
+      }
+    }
+
+    h2 {
+      background: -webkit-linear-gradient(#e2cd2fda, #edb825d8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 25px;
+      border-bottom: 1px solid #fff;
+      padding-bottom: 10px;
+      margin-bottom: 13px;
+    }
+
+    img {
+      border-radius: 5px;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: top center;
+    }
   }
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s ease;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  border-radius: 5px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card-back {
-  background: rgb(43, 43, 43);
-  color: #fff;
-  padding: 20px;
-  transform: rotateY(180deg);
-}
-
-.card li {
-  list-style: none;
 }
