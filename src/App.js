@@ -26,12 +26,19 @@ const App = () => {
     useContext(BreakingBadContext)
 
   useEffect(() => {
+    let isComponentMounted = true
     dispatch({ type: 'SET_LOADING' })
-    const getCharacters = async () => {
+    const getDataFromApi = async () => {
       const data = await getData()
-      dispatch({ type: 'GET_DATA', payload: data })
+      if (isComponentMounted) {
+        dispatch({ type: 'GET_DATA', payload: data })
+      }
     }
-    getCharacters()
+    getDataFromApi()
+
+    return () => {
+      isComponentMounted = false
+    }
   }, [dispatch])
 
   const location = useLocation()
