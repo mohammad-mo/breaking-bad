@@ -14,6 +14,7 @@ import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
 import CustomCursor from './Components/CutomCursor'
 import Loading from './Components/loading'
+import ErrorBoundary from './Components/ErrorBoundary'
 
 // Style
 import './Styles/app.scss'
@@ -53,24 +54,26 @@ const App = () => {
   } else {
     return (
       <>
-        <CustomCursor />
-        <NavBar />
-        <AnimatePresence exitBeforeEnter>
-          <Routes location={location} key={location.pathname}>
-            <Route
-              exact
-              path='/'
-              element={<CharacterList characters={characters} />}
-            />
-            <Route path='/quotes' element={<QuoteList quotes={quotes} />} />
-            <Route
-              path='/episodes'
-              element={<EpisodeList episodes={episodes} />}
-            />
-            <Route path='/deaths' element={<DeathList deaths={deaths} />} />
-          </Routes>
-          )
-        </AnimatePresence>
+        <ErrorBoundary>
+          <CustomCursor />
+          <NavBar />
+          <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.pathname}>
+              <Route
+                exact
+                path='/'
+                element={<CharacterList characters={characters} />}
+              />
+              <Route path='/quotes' element={<QuoteList quotes={quotes} />} />
+              <Route
+                path='/episodes'
+                element={<EpisodeList episodes={episodes} />}
+              />
+              <Route path='/deaths' element={<DeathList deaths={deaths} />} />
+            </Routes>
+            )
+          </AnimatePresence>
+        </ErrorBoundary>
       </>
     )
   }
