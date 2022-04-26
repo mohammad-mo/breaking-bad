@@ -12,6 +12,7 @@ import CharacterList from './Components/CharacterList'
 import QuoteList from './Components/QuoteList'
 import EpisodeList from './Components/EpisodeList'
 import DeathList from './Components/DeathList'
+import NotFound from './Components/NotFound'
 import CustomCursor from './Components/CutomCursor'
 import Loading from './Components/loading'
 import ErrorBoundary from './Components/ErrorBoundary'
@@ -70,8 +71,9 @@ const App = () => {
                 element={<EpisodeList episodes={episodes} />}
               />
               <Route path='/deaths' element={<DeathList deaths={deaths} />} />
+              <Route path='/notfound' element={<NotFound />} />
+              <Route path='/*' element={<NotFound />} />
             </Routes>
-            )
           </AnimatePresence>
         </ErrorBoundary>
       </>
