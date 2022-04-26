@@ -77,16 +77,20 @@
 
 @media screen and (max-width: 425px) {
   .container {
-    h1 {
-      font-size: 1.8rem;
+    .main-nav {
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   }
 }
 
 @media screen and (max-width: 350px) {
   .container {
-    h1 {
-      font-size: 1.5rem;
+    .main-nav {
+      h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 }
