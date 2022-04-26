@@ -5,7 +5,7 @@
 }
 
 body {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
   padding: 0 1.25rem;
   background: #000 url('../images/background.jpg') no-repeat center/cover;
@@ -67,4 +67,5 @@ a {
 @import './episodeList';
 @import './deathList';
 @import './loading';
+@import './footer';
 @import './notFound';
