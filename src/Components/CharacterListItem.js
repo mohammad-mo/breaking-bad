@@ -96,7 +96,7 @@ const CharacterListItem = ({ item }) => {
       case 'Charles McGill':
         return (item.birthday = '10-17-1947')
       case 'Ignacio Varga':
-        return (item.birthday = '12-09-1971')
+        return (item.birthday = '12-09-1981')
       case 'Eduardo Salamanca':
         return (item.birthday = '02-13-1975')
       case 'Marco & Leonel Salamanca':
