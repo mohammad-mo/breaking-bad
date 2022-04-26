@@ -8,11 +8,12 @@ import { getData } from './Context/Actions'
 
 // Components
 import NavBar from './Components/NavBar'
-import CharacterList from './Components/CharacterList'
-import QuoteList from './Components/QuoteList'
-import EpisodeList from './Components/EpisodeList'
-import DeathList from './Components/DeathList'
-import NotFound from './Components/NotFound'
+import Footer from './Components/Footer'
+import Characters from './Pages/Characters'
+import Quotes from './Pages/Quotes'
+import Episodes from './Pages/Episodes'
+import Deaths from './Pages/Deaths'
+import NotFound from './Pages/NotFound'
 import CustomCursor from './Components/CutomCursor'
 import Loading from './Components/loading'
 import ErrorBoundary from './Components/ErrorBoundary'
@@ -22,7 +23,6 @@ import './Styles/app.scss'
 
 // Animation
 import { AnimatePresence } from 'framer-motion'
-import Footer from './Components/Footer'
 
 const App = () => {
   const { characters, quotes, episodes, deaths, dispatch, loading } =
@@ -64,14 +64,14 @@ const App = () => {
               <Route
                 exact
                 path='/'
-                element={<CharacterList characters={characters} />}
+                element={<Characters characters={characters} />}
               />
-              <Route path='/quotes' element={<QuoteList quotes={quotes} />} />
+              <Route path='/quotes' element={<Quotes quotes={quotes} />} />
               <Route
                 path='/episodes'
-                element={<EpisodeList episodes={episodes} />}
+                element={<Episodes episodes={episodes} />}
               />
-              <Route path='/deaths' element={<DeathList deaths={deaths} />} />
+              <Route path='/deaths' element={<Deaths deaths={deaths} />} />
               <Route path='/notfound' element={<NotFound />} />
               <Route path='/*' element={<NotFound />} />
             </Routes>
