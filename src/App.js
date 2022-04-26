@@ -22,6 +22,7 @@ import './Styles/app.scss'
 
 // Animation
 import { AnimatePresence } from 'framer-motion'
+import Footer from './Components/Footer'
 
 const App = () => {
   const { characters, quotes, episodes, deaths, dispatch, loading } =
@@ -75,6 +76,7 @@ const App = () => {
               <Route path='/*' element={<NotFound />} />
             </Routes>
           </AnimatePresence>
+          <Footer />
         </ErrorBoundary>
       </>
     )
