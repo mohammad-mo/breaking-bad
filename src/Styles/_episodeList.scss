@@ -31,6 +31,12 @@
   }
 }
 
+@media screen and (min-width: 1100px) {
+  .cards-episode {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media screen and (max-width: 665px) {
   .cards-episode {
     grid-template-columns: repeat(1, 1fr);
