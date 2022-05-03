@@ -25,7 +25,7 @@ body {
 @media screen and (max-width: 850px) {
   body {
     background: #000 url('../images/background-mobile.jpg') no-repeat
-      center/cover;
+      center/cover fixed;
     background-image: -webkit-image-set(
       url('../images/background-mobile.webp') type('image/webp'),
       url('../images/background-mobile.jpg') type('image/jpeg')
