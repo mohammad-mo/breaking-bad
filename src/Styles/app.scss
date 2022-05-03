@@ -8,7 +8,7 @@ body {
   max-width: 1500px;
   margin: auto;
   padding: 0 1.25rem;
-  background: #000 url('../images/background.jpg') no-repeat center/cover;
+  background: #000 url('../images/background.jpg') no-repeat center/cover fixed;
   background-image: -webkit-image-set(
     url('../images/background.webp') type('image/webp'),
     url('../images/background.jpg') type('image/jpeg')
