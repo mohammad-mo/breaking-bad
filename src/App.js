@@ -1,6 +1,6 @@
-import { Route, Routes, useLocation } from 'react-router-dom'
-
 import { useEffect, useContext } from 'react'
+
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom'
 
 // Context
 import BreakingBadContext from './Context/Context'
@@ -9,14 +9,13 @@ import { getData } from './Context/Actions'
 // Components
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
+import Loading from './Components/loading'
+import ErrorBoundary from './Components/ErrorBoundary'
 import Characters from './Pages/Characters'
 import Quotes from './Pages/Quotes'
 import Episodes from './Pages/Episodes'
 import Deaths from './Pages/Deaths'
 import NotFound from './Pages/NotFound'
-import CustomCursor from './Components/CutomCursor'
-import Loading from './Components/loading'
-import ErrorBoundary from './Components/ErrorBoundary'
 
 // Style
 import './Styles/app.scss'
@@ -57,15 +56,15 @@ const App = () => {
     return (
       <>
         <ErrorBoundary>
-          <CustomCursor />
+          {/* <CustomCursor /> */}
           <NavBar />
           <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
               <Route
-                exact
-                path='/'
+                path='/characters'
                 element={<Characters characters={characters} />}
               />
+              <Route path='/' element={<Navigate to='/characters' />} />
               <Route path='/quotes' element={<Quotes quotes={quotes} />} />
               <Route
                 path='/episodes'

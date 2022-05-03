@@ -14,7 +14,6 @@ const NavBar = () => {
           <span className='br-span'>Br</span>eaking{' '}
           <span className='ba-span'>Ba</span>d
         </h1>
-        {/* Hamburger Menu */}
         <div
           className='hamburger-menu'
           onClick={() => setShowMediaIcons(!showMediaIcons)}
@@ -23,7 +22,7 @@ const NavBar = () => {
         </div>
         <ul className={`menu-link ${showMediaIcons ? 'active' : ''}`}>
           <li>
-            <NavLink to={{ pathname: '/' }}>Characters</NavLink>
+            <NavLink to={{ pathname: '/characters' }}>Characters</NavLink>
           </li>
           <li>
             <NavLink to={{ pathname: '/quotes' }}>Quotes</NavLink>

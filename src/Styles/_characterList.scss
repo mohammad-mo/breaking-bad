@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
 
   .card {
-    // cursor: pointer;
+    cursor: pointer;
     background: transparent;
     height: 300px;
     perspective: 1000px;
