@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
+// Icons
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiFillCloseCircle } from 'react-icons/ai'
 

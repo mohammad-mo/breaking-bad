@@ -1,9 +1,12 @@
+// Components
 import DeathList from '../Components/DeathList'
+
 import useTitle from '../Hooks/useTitle'
 
-const Deaths = ({ deaths }) => {
+const Deaths = () => {
   useTitle('Deaths')
-  return <DeathList deaths={deaths} />
+
+  return <DeathList />
 }
 
 export default Deaths

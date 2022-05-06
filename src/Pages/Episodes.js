@@ -1,9 +1,12 @@
+// Components
 import EpisodeList from '../Components/EpisodeList'
+
 import useTitle from '../Hooks/useTitle'
 
-const Episodes = ({ episodes }) => {
+const Episodes = () => {
   useTitle('Episodes')
-  return <EpisodeList episodes={episodes} />
+
+  return <EpisodeList />
 }
 
 export default Episodes

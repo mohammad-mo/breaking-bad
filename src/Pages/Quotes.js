@@ -1,9 +1,12 @@
+// Components
 import QuoteList from '../Components/QuoteList'
+
 import useTitle from '../Hooks/useTitle'
 
-const Quotes = ({ quotes }) => {
+const Quotes = () => {
   useTitle('Quotes')
-  return <QuoteList quotes={quotes} />
+
+  return <QuoteList />
 }
 
 export default Quotes
