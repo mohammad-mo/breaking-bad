@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 // Components
 import EpisodeListItem from './EpisodeListItem'
@@ -8,38 +8,28 @@ import Loading from './loading'
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-// Context
-import BreakingBadContext from '../Context/Context'
-import { getData } from '../Context/Actions'
+// Redux
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchdataRequest } from '../redux/actions'
 
 const EpisodeList = () => {
-  const { episodes, dispatch } = useContext(BreakingBadContext)
+  const dispatch = useDispatch()
+  const episodes = useSelector((state) => state.data.episodes)
 
   useEffect(() => {
-    let isComponentMounted = true
-    dispatch({ type: 'SET_LOADING' })
-    const getDataFromApi = async () => {
-      const data = await getData()
-      if (isComponentMounted) {
-        dispatch({ type: 'GET_DATA', payload: data })
-      }
-    }
-    getDataFromApi()
-
-    return () => {
-      isComponentMounted = false
-    }
-  }, [dispatch])
+    dispatch(fetchdataRequest())
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <motion.section
-      className={episodes.length ? 'cards-episode' : ''}
+      className={episodes ? 'cards-episode' : ''}
       variants={pageAnimation}
       initial='hidden'
       animate='show'
       exit='exit'
     >
-      {episodes.length ? (
+      {episodes ? (
         React.Children.toArray(
           episodes.map((item) => <EpisodeListItem item={item} />),
         )

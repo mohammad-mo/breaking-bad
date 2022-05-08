@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 // Components
 import QuoteListItem from './QuoteListItem'
@@ -8,38 +8,28 @@ import Loading from './loading'
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-// Context
-import BreakingBadContext from '../Context/Context'
-import { getData } from '../Context/Actions'
+// Redux
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchdataRequest } from '../redux/actions'
 
 const QuoteList = () => {
-  const { quotes, dispatch } = useContext(BreakingBadContext)
+  const dispatch = useDispatch()
+  const quotes = useSelector((state) => state.data.quotes)
 
   useEffect(() => {
-    let isComponentMounted = true
-    dispatch({ type: 'SET_LOADING' })
-    const getDataFromApi = async () => {
-      const data = await getData()
-      if (isComponentMounted) {
-        dispatch({ type: 'GET_DATA', payload: data })
-      }
-    }
-    getDataFromApi()
-
-    return () => {
-      isComponentMounted = false
-    }
-  }, [dispatch])
+    dispatch(fetchdataRequest())
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <motion.section
-      className={quotes.length ? 'cards-quote' : ''}
+      className={quotes ? 'cards-quote' : ''}
       variants={pageAnimation}
       initial='hidden'
       animate='show'
       exit='exit'
     >
-      {quotes.length ? (
+      {quotes ? (
         React.Children.toArray(
           quotes.map((item) => <QuoteListItem item={item} />),
         )

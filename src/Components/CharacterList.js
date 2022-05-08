@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 // Components
 import CharacterListItem from './CharacterListItem'
@@ -8,38 +8,28 @@ import Loading from '../Components/loading'
 import { motion } from 'framer-motion'
 import { pageAnimation } from '../animation'
 
-// Context
-import BreakingBadContext from '../Context/Context'
-import { getData } from '../Context/Actions'
+// Redux
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchdataRequest } from '../redux/actions'
 
 const CharacterList = () => {
-  const { characters, dispatch } = useContext(BreakingBadContext)
+  const dispatch = useDispatch()
+  const characters = useSelector((state) => state.data.characters)
 
   useEffect(() => {
-    let isComponentMounted = true
-    dispatch({ type: 'SET_LOADING' })
-    const getDataFromApi = async () => {
-      const data = await getData()
-      if (isComponentMounted) {
-        dispatch({ type: 'GET_DATA', payload: data })
-      }
-    }
-    getDataFromApi()
-
-    return () => {
-      isComponentMounted = false
-    }
-  }, [dispatch])
+    dispatch(fetchdataRequest())
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <motion.section
-      className={characters.length ? 'cards' : ''}
+      className={characters ? 'cards' : ''}
       variants={pageAnimation}
       initial='hidden'
       animate='show'
       exit='exit'
     >
-      {characters.length ? (
+      {characters ? (
         React.Children.toArray(
           characters.map((item) => <CharacterListItem item={item} />),
         )

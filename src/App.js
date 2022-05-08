@@ -1,7 +1,6 @@
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom'
 
 // Components
-import Loading from './Components/loading'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
 import ErrorBoundary from './Components/ErrorBoundary'
